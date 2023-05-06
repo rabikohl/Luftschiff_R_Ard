@@ -85,13 +85,14 @@ string MyServer::myResponse(string inputStr){
 	if(inputStr.compare("w")==0){
 		if(lastCommand !='w'){
 			lastCommand = 'w';
+			gpioWrite(6, 1);
+			gpioWrite(26, 1);
 			power=250;  // än
 		}
 		if(power < maxpower){
 			//power=power+5;
 			power=power-5;
-			gpioWrite(6, 1);
-			gpioWrite(26, 1);
+			
 			gpioPWM(13, power);
 			gpioPWM(19, power);
 		}
@@ -108,10 +109,11 @@ string MyServer::myResponse(string inputStr){
 			gpioPWM(13, power);
 			gpioPWM(19, power);
 		}*/
+		power=125;
 		gpioWrite(6, 0);	//bremsen
 		gpioWrite(26, 0);
-		gpioPWM(13, 125);
-		gpioPWM(19, 125);
+		gpioPWM(13, power);
+		gpioPWM(19, power);
 		
 		
 		pow=to_string(power);
