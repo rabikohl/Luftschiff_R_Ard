@@ -53,7 +53,7 @@ int main(){
 	gpioSetMode(15,PI_OUTPUT);	//Richtung Motor 3
 	gpioSetMode(26,PI_OUTPUT); 	//Richtung Motor 2
 	gpioSetMode(13,PI_ALT0); 	//Geschwindigkeit Motor 1
-	gpioSetMode(18,PI_ALT0); 	//Geschwindigkeit Motor 3
+	gpioSetMode(18,PI_ALT5); 	//Geschwindigkeit Motor 3
 	gpioSetMode(19,PI_ALT5);	//Geschwindigkeit Motor 2
 	gpioSetPWMrange(13,255);
 	gpioSetPWMrange(18,255);
