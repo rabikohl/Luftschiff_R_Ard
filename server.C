@@ -100,26 +100,28 @@ void MyServer::set_m_speed_port_starboard(){
 
 void MyServer::set_m_steering(string &response){
 	if(m_speed = 0){ //drehen im stand
+		m_speed_starboard = m_speed;
+		m_speed_port = m_speed;
 		switch(m_steering_command){
-			case 0:		response += "AHEAD";
+			case 0:		response += " AHEAD";
 					break;
 			case 1:		m_speed_port = 125;
 					m_speed_starboard = -125;
-					response += "HALF PORT";
+					response += " HALF PORT";
 					break;
 			case 2: 	m_speed_port = 250;
 					m_speed_starboard = -250;
-					response += "FULL PORT";
+					response += " FULL PORT";
 					break;
 			case -1: 	m_speed_starboard = 125;
 					m_speed_port = -125;
-					response += "HALF STARBOARD";
+					response += " HALF STARBOARD";
 					break;
 			case -2:	m_speed_starboard = 250;
 					m_speed_port = -250;
-					response += "FULL STARBOARD";	
+					response += " FULL STARBOARD";	
 					break;
-			default: 	response += "steering broken";
+			default: 	response += " steering broken";
 					break;
 		
 		}
@@ -128,21 +130,21 @@ void MyServer::set_m_steering(string &response){
 		m_speed_port = m_speed;
 	
 		switch(m_steering_command){
-				case 0:		response += "AHEAD";
+				case 0:		response += " AHEAD";
 						break;
 				case 1:		m_speed_port = m_speed_port - 125;
-						response += "HALF PORT";
+						response += " HALF PORT";
 						break;
 				case 2: 	m_speed_port = m_speed_port - 250;
-						response += "FULL PORT";
+						response += " FULL PORT";
 						break;
 				case -1: 	m_speed_starboard = m_speed_starboard - 125;
-						response += "HALF STARBOARD";
+						response += " HALF STARBOARD";
 						break;
 				case -2:	m_speed_starboard = m_speed_starboard - 250;
-						response += "FULL STARBOARD";
+						response += " FULL STARBOARD";
 						break;
-				default: 	response += "steering broken";
+				default: 	response += " steering broken";
 						break;
 		}
 	}
