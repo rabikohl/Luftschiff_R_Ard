@@ -157,21 +157,29 @@ string MyServer::myResponse(string inputStr){
 		response.append(pow);
 		return response;
 	}else if(inputStr.compare("hoch")==0){
-		if(powerMotorEinzel < maxpower){
+		/*if(powerMotorEinzel < maxpower){
 			powerMotorEinzel=powerMotorEinzel+5;
 			gpioWrite(15, 1);
 			gpioPWM(18, powerMotorEinzel);
-		}
+		}*/
+		gpioWrite(14,1);
+		sleep(0.1);
+		gpioWrite(14,0);
+		
 		pow=to_string(power);
 		response="hoch:";
 		response.append(pow);
 		return response;
 	}else if(inputStr.compare("runter")==0){
-		if(powerMotorEinzel > 0){
+		/*if(powerMotorEinzel > 0){
 			powerMotorEinzel=powerMotorEinzel-5;
 			gpioWrite(15, 0);
 			gpioPWM(18, powerMotorEinzel);
-		}
+		}*/
+		gpioWrite(15,1);
+		sleep(0.1);
+		gpioWrite(15,0);
+		
 		pow=to_string(power);
 		response="runter:";
 		response.append(pow);
